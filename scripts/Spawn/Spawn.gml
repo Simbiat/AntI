@@ -5,11 +5,10 @@ function spawn(object_index)
 	    case obj_dave:
 	        instance_create_layer(107, 839, "Instances", object_index);
 	        break;
-		case obj_frank:
-	        instance_create_layer(1729, 673, "Instances", object_index);
-	        break;
 		case obj_zombie:
-	        instance_create_layer(1805, 812, "Instances", object_index);
+			//Lowest Y = 812
+			//Highest Y = 0 + sprite_get_height(zombie_left_walk)
+	        instance_create_layer(1805, random_range(812, sprite_get_height(zombie_left_walk)*7/2), "Instances", object_index);
 	        break;
 	    default:
 	        // code here

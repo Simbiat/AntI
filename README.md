@@ -3,4 +3,4 @@ Game done as part of Arcada's [Game Design and Production](https://www.arcada.fi
 Playable web version [here](https://www.simbiat.dev/games/anti/)
 ## Overcoursed:
 - Game design and coding: [Dmitry Kustov](https://www.linkedin.com/in/simbiat19/)
-- Sprites: Robin Halttunen and [Stella Weckström](https://www.linkedin.com/in/stella-weckstr%C3%B6m-a51394247/)
+- Sprites: [Robin Halttunen](https://www.linkedin.com/in/robin-halttunen-640487195/) and [Stella Weckström](https://www.linkedin.com/in/stella-weckstr%C3%B6m-a51394247/)

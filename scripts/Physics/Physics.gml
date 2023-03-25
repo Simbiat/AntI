@@ -5,12 +5,13 @@ function applyPhysics()
 	closest_left_wall = closestLeftWall();
 	closest_right_wall = closestRightWall();
 	is_grounded = isGrounded();
-	if object_get_parent(object_index) == obj_enemy {
+	if object_index == obj_zombie {
 		followPlayer();
 		//Player seems to work fine with just collision event, but enemies get too far without this
 		horizontalCollisions();
+	} else {
+		applyGravity();
 	}
-	applyGravity();
 	//move_bounce_all(false);
 }
 
@@ -154,8 +155,10 @@ function daveLand()
 	if (closest_floor == room_floor) {
 		screenshake(0.5, 1, 0.25, false, false, false, true);
 	}
+	audio_stop_sound(obj_res_manager.music_file);
 	audio_play_sound(snd_landing, 1, false);
 	isJumping = false;
+	obj_game.alarm[1] = 1;
 }
 
 function horizontalCollisions()

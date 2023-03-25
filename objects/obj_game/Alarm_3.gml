@@ -1,3 +1,2 @@
-/// @description Stop the music
-music_position = 0;
-audio_stop_sound(music_file);
+/// @description Delay button prompts
+//No code is actually required here

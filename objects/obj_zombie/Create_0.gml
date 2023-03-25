@@ -1,1 +1,1 @@
-event_inherited();
+applyPhysics();
