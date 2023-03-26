@@ -1,2 +1,2 @@
-event_inherited();
-inattack_range = isInAttack_range();
+applyPhysics();
+stride = min(max(obj_game.combo/4, 1), 10);

@@ -8,7 +8,7 @@ function applyPhysics()
 	if object_index == obj_zombie {
 		followPlayer();
 		//Player seems to work fine with just collision event, but enemies get too far without this
-		horizontalCollisions();
+		//horizontalCollisions();
 	} else {
 		applyGravity();
 	}
@@ -124,7 +124,7 @@ function applyGravity() {
 			vspeed = 0;	
 			//Thismay mean we are "below" the floor and need to adjust position
 			y += distance;
-			if (object_index == obj_dave) {
+			if (object_index == obj_player) {
 				if isJumping {
 					daveLand();
 				}
@@ -134,14 +134,14 @@ function applyGravity() {
 				vspeed += gravityForce;
 			} else {
 				vspeed = distance;
-				if (object_index == obj_dave) {
+				if (object_index == obj_player) {
 					daveLand();
 				}
 			}
 		}
 	} else {
 		vspeed = 0;
-		if (object_index == obj_dave) {
+		if (object_index == obj_player) {
 			if isJumping {
 				daveLand();
 			}
@@ -190,44 +190,6 @@ function horizontalCollisions()
 				hspeed = distanceRight;
 			}
 		}
-	}
-}
-
-function faceDirection(left, right)
-{
-	if object_index != obj_dave {
-		if direction < 90 or direction > 270 {
-			facing = "right";
-		} else if direction > 90 and direction < 270 {
-			facing = "left";
-		}
-	}
-	if facing == "left" {
-		sprite_index = left;
-	} else if facing == "right" {
-		sprite_index = right;
-	}
-}
-
-function isInAttack_range() {
-	//Clearly not in attack range, if there is no Dave
-	if !instance_exists(obj_dave) {
-		return false;	
-	}
-	//Dave is already dead, we are playing the death "sequence"
-	if obj_dave.isDead or obj_dave.invincible {
-		return false;
-	}
-	//If enemy is over dave, and minimum attack range is 0, consider in range
-	if attack_range_min == 0 && collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, obj_dave, true, true) {
-		return true;
-	}
-	if (facing == "left" && collision_rectangle(x - attack_range_min, bbox_top, x - attack_range_max, bbox_bottom, obj_dave, true, true)) or
-		(facing == "right" && collision_rectangle(x + attack_range_min, bbox_top, x + attack_range_max, bbox_bottom, obj_dave, true, true))
-	{
-		return true;
-	} else {
-		return false;
 	}
 }
 

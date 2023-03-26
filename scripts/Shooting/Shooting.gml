@@ -2,15 +2,11 @@ function daveShoot()
 {
 	//Also check that we are not shooting already or waiting for bullet to be created
 	//This is required to prevent rapid fire from being "too fast"
-	if obj_dave.isShooting == false and obj_dave.alarm[0] < 0 {
-		obj_dave.isShooting = true;
+	if obj_player.isShooting == false and obj_player.alarm[0] < 0 {
+		obj_player.isShooting = true;
 		var delay = 0.3;
-		if obj_dave.facing == "right" {
-			obj_dave.sprite_index = shoot_right_straight;
-		} else {
-			obj_dave.sprite_index = shoot_left_straight;
-		}
-		obj_dave.alarm[0] = delay * room_speed;
+		obj_player.sprite_index = shoot_right_straight;
+		obj_player.alarm[0] = delay * room_speed;
 	}
 }
 
@@ -28,5 +24,5 @@ function shoot(_target = noone)
 	} else {
 		instance_create_layer(bulletX, bulletY, "Projectiles", obj_bullet_instakill, {target: _target});
 	}
-	obj_dave.isShooting = false;	
+	obj_player.isShooting = false;	
 }

@@ -2,7 +2,7 @@ function spawn(object_index)
 {
 	switch (object_index) {
 		//This is for demo only
-	    case obj_dave:
+	    case obj_player:
 	        instance_create_layer(107, 839, "Instances", object_index);
 	        break;
 		case obj_zombie:

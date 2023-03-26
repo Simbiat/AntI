@@ -42,13 +42,15 @@ if !wrong && !right {
 					}
 			        break;
 			}
-			if wrong && instance_exists(obj_dave) {
+			if wrong && instance_exists(obj_player) {
 				obj_game.combo = 0;
 				screenshake(1, 2, 0.25, false, true, true, false);
 				daveJump(true);
 			}
 			if right {
 				obj_game.combo++;
+				//Add points
+				obj_game.points += obj_game.combo*100;
 				screenshake(2, 1, 0.25, false, true, true, false);
 			}
 		}

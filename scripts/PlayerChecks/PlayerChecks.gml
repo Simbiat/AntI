@@ -14,6 +14,11 @@ function tryingToJump()
 
 function pressedUp()
 {
+	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face4) {
+			return true;
+		}
+	}
 	if keyboard_check_pressed(vk_up) or keyboard_check_pressed(vk_numpad8) {
 		return true;
 	} else {
@@ -23,6 +28,11 @@ function pressedUp()
 
 function pressedDown()
 {
+	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face1) {
+			return true;
+		}
+	}
 	if keyboard_check_pressed(vk_down) or keyboard_check_pressed(vk_numpad2) {
 		return true;
 	} else {
@@ -32,6 +42,11 @@ function pressedDown()
 
 function pressedLeft()
 {
+	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face3) {
+			return true;
+		}
+	}
 	if keyboard_check_pressed(vk_left) or keyboard_check_pressed(vk_numpad4) {
 		return true;
 	} else {
@@ -41,6 +56,11 @@ function pressedLeft()
 
 function pressedRight()
 {
+	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face2) {
+			return true;
+		}
+	}
 	if keyboard_check_pressed(vk_right) or keyboard_check_pressed(vk_numpad6) {
 		return true;
 	} else {

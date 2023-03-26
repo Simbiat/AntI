@@ -1,12 +1,12 @@
 event_inherited();
 if !is_grounded {
-	faceDirection(dave_left_jump, dave_right_jump);
+	sprite_index = dave_right_jump;
 } else {
-	faceDirection(dave_left_stand, dave_right_stand);
+	sprite_index = dave_right_stand;
 }
 if isDead {
 	hspeed = 0;
-	faceDirection(dave_left_jump, dave_right_jump);
+	sprite_index = dave_right_jump;
 } else {
 	processActions();
 }
