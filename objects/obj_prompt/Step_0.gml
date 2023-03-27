@@ -44,8 +44,7 @@ if !wrong && !right {
 			}
 			if wrong && instance_exists(obj_player) {
 				obj_game.combo = 0;
-				screenshake(1, 2, 0.25, false, true, true, false);
-				daveJump(true);
+				punish();
 			}
 			if right {
 				obj_game.combo++;

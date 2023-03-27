@@ -3,7 +3,7 @@ if other.target == noone {
 	hp -= 1;
 	if (hp == 0) {
 		//Temporary code for testing
-		spawn(obj_zombie);
+		spawn(obj_flying_bomb);
 		//Add points
 		obj_game.points += obj_game.score_multiplier*points;
 		//Destroy the instance
@@ -17,7 +17,7 @@ if other.target == noone {
 		instance_destroy(other);
 	}
 	//Temporary code for testing
-	spawn(obj_zombie);
+	spawn(obj_flying_bomb);
 	//Destroy the instance
 	instance_destroy();
 }

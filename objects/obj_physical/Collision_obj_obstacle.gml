@@ -12,7 +12,7 @@ if closest_ceil.object_index == other.object_index {
 	y = closest_ceil.bbox_bottom + (y - bbox_top);
 	vspeed = 0;
 	if object_index == obj_player {
-		screenshake(1, 2, 0.25, false, false, true, false);
 		audio_play_sound(snd_ceiling, 1, false);
+		punish();
 	}
 }

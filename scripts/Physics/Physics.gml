@@ -5,7 +5,7 @@ function applyPhysics()
 	closest_left_wall = closestLeftWall();
 	closest_right_wall = closestRightWall();
 	is_grounded = isGrounded();
-	if object_index == obj_zombie {
+	if object_index == obj_flying_bomb {
 		followPlayer();
 		//Player seems to work fine with just collision event, but enemies get too far without this
 		//horizontalCollisions();

@@ -5,7 +5,6 @@ function daveShoot()
 	if obj_player.isShooting == false and obj_player.alarm[0] < 0 {
 		obj_player.isShooting = true;
 		var delay = 0.3;
-		obj_player.sprite_index = shoot_right_straight;
 		obj_player.alarm[0] = delay * room_speed;
 	}
 }
@@ -25,4 +24,10 @@ function shoot(_target = noone)
 		instance_create_layer(bulletX, bulletY, "Projectiles", obj_bullet_instakill, {target: _target});
 	}
 	obj_player.isShooting = false;	
+}
+
+function punish()
+{
+	screenshake(1, 2, 0.25, false, true, true, false);
+	daveJump(true);	
 }

@@ -1,12 +1,12 @@
 event_inherited();
 if !is_grounded {
-	sprite_index = dave_right_jump;
+	sprite_index = player_jump;
 } else {
-	sprite_index = dave_right_stand;
+	sprite_index = player_stand;
 }
 if isDead {
 	hspeed = 0;
-	sprite_index = dave_right_jump;
+	sprite_index = player_jump;
 } else {
 	processActions();
 }
@@ -14,7 +14,7 @@ if isDead {
 //Check if any of the enemies are close
 /*
 var enemies = ds_list_create();
-var enemiesNumber = collision_rectangle_list(0, 0, x + sprite_width*2, room_height*global.screen_scale, obj_zombie, false, true, enemies, false);
+var enemiesNumber = collision_rectangle_list(0, 0, x + sprite_width*2, room_height*global.screen_scale, obj_flying_bomb, false, true, enemies, false);
 if enemiesNumber > 0 {
     for (var i = 0; i < enemiesNumber; ++i;) {
 		var alreadyTargeted = false;
