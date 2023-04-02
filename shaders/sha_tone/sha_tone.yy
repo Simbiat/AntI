@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "sha_tone",
   "parent": {
-    "name": "Shaders",
-    "path": "folders/Shaders.yy",
+    "name": "SimbiatCommons",
+    "path": "folders/SimbiatCommons.yy",
   },
   "type": 1,
 }

@@ -1,12 +1,20 @@
 function applyPhysics()
 {
-	closest_floor = closestFloor();
-	closest_ceil = closestCeiling();
-	closest_left_wall = closestLeftWall();
-	closest_right_wall = closestRightWall();
+	closest_floor = room_floor;
+	closest_ceil = room_ceiling;
+	closest_left_wall = room_left_wall;
+	closest_right_wall = room_right_wall;
 	is_grounded = isGrounded();
-	if object_index == obj_flying_bomb {
-		followPlayer();
+	if object_get_parent(object_index) == obj_enemy {
+		if facing == "left" {
+			if destroyOnLeft {
+				move_towards_point(closest_left_wall.bbox_left - sprite_width/2, y, hspeed);
+			} else {
+				move_towards_point(closest_left_wall.bbox_right, y, hspeed);
+			}
+		} else {
+			move_towards_point(closest_right_wall.bbox_right, y, hspeed);
+		}
 		//Player seems to work fine with just collision event, but enemies get too far without this
 		//horizontalCollisions();
 	} else {
@@ -15,84 +23,9 @@ function applyPhysics()
 	//move_bounce_all(false);
 }
 
-function closestFloor()
-{
-	var toReturn = noone;
-	var floors = ds_list_create();
-	var count = collision_rectangle_list(bbox_left, bbox_bottom, bbox_right, room_floor.bbox_top + max(1, sign(vspeed)), obj_invis_floor, true, true, floors, true);
-	if count > 0 {
-		//Need to order "manually", because rectangle_list orders based on distance from rectangle's center
-		for (var i = 0; i < count; ++i) {
-			//If this is the first iteration, assume it to be closest one
-			if toReturn == noone {
-				toReturn = floors[| i];
-			} else {
-				//Check if current iteration's border is "higher"
-				if (floors[| i].bbox_top <= toReturn.bbox_top) {
-					toReturn = floors[| i];
-				}
-			}
-		}
-	} else {
-		//Most likely the object's lower boundary is below the room floor. Need to adjust position, since this is not normal
-		y = y - (bbox_bottom - room_floor.bbox_top);
-		toReturn = room_floor;
-	}
-	ds_list_destroy(floors);
-	return toReturn;
-}
-
-function closestCeiling()
-{
-	var toReturn = noone;
-	var ceilings = ds_list_create();
-	var count = collision_rectangle_list(bbox_left, bbox_top, bbox_right, room_ceiling.bbox_bottom - max(1, sign(vspeed)), obj_invis_ceil, true, true, ceilings, true);
-	if count > 0 {
-	    toReturn = ceilings[| 0];
-	} else {
-		//Most likely the object's top boundary is above the room ceiling. Need to adjust position, since this is not normal
-		y = y + (bbox_top - room_ceiling.bbox_bottom) + 1;
-		toReturn = room_ceiling;
-	}
-	ds_list_destroy(ceilings);
-	return toReturn;
-}
-
-function closestLeftWall()
-{
-	var toReturn = noone;
-	var walls = ds_list_create();
-	var count = collision_rectangle_list(bbox_left, bbox_top, room_left_wall.bbox_right - max(1, sign(hspeed)), bbox_bottom, obj_invis_wall, true, true, walls, true);
-	if count > 0 {
-	    toReturn = walls[| 0];
-	} else {
-		//Most likely the object's left boundary is behind the left wall. Need to adjust position, since this is not normal
-		x = x + (bbox_left - room_left_wall.bbox_right) + 1;
-		toReturn = room_left_wall;
-	}
-	ds_list_destroy(walls);
-	return toReturn;
-}
-
-function closestRightWall()
-{
-	var toReturn = noone;
-	var walls = ds_list_create();
-	var count = collision_rectangle_list(bbox_right, bbox_top, room_right_wall.bbox_left + max(1, sign(hspeed)), bbox_bottom, obj_invis_wall, true, true, walls, true);
-	if count > 0 {
-	    toReturn = walls[| 0];
-	} else {
-		//Most likely the object's right boundary is behind the right wall. Need to adjust position, since this is not normal
-		x = x - (room_right_wall.bbox_left - bbox_right) - 1;
-		toReturn = room_left_wall;
-	}
-	ds_list_destroy(walls);
-	return toReturn;
-}
-
 function ground()
 {
-	closest_floor = closestFloor();
+	closest_floor = room_floor;
 	if bbox_bottom < closest_floor.bbox_top {
 		y += (closest_floor.bbox_top - bbox_bottom);
 	} else if  bbox_bottom < closest_floor.bbox_top {
@@ -155,10 +88,12 @@ function daveLand()
 	if (closest_floor == room_floor) {
 		screenshake(0.5, 1, 0.25, false, false, false, true);
 	}
-	audio_stop_sound(obj_res_manager.music_file);
-	audio_play_sound(snd_landing, 1, false);
+	play_sound(snd_landing);
 	isJumping = false;
-	obj_game.alarm[1] = 1;
+	damagePlayer();
+	if obj_game.hp < 0 {
+		audio_stop_sound(obj_res_manager.music_file);
+	}
 }
 
 function horizontalCollisions()

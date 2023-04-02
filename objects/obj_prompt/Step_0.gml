@@ -5,6 +5,7 @@ if !wrong && !right {
 	} else if timer <= input_buffer {
 		//Hide the button if its TTL has expired, but do not destroy it yet
 		image_alpha = 0;
+		timer--;
 	} else {
 		//Check if we pressed a button to jump
 		if tryingToJump() {
@@ -42,15 +43,26 @@ if !wrong && !right {
 					}
 			        break;
 			}
+			if wrong && timer > ttl + input_buffer {
+				//If wrong input is detected within small input buffer at the start of the prompt - ignore it, assume accident
+				wrong = false;
+			}
 			if wrong && instance_exists(obj_player) {
 				obj_game.combo = 0;
-				punish();
+				if !obj_player.is_grounded {
+					punish();
+				}
 			}
 			if right {
 				obj_game.combo++;
 				//Add points
 				obj_game.points += obj_game.combo*100;
 				screenshake(2, 1, 0.25, false, true, true, false);
+			}
+			if initial && (right || wrong) {
+				obj_game.initialPromptUsed = true;
+				//Spawn first enemy
+				spawn();
 			}
 		}
 		//Reduce timer

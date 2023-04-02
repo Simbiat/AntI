@@ -4,7 +4,7 @@
   "name": "spr_sky",
   "bbox_bottom": 1079,
   "bbox_left": 0,
-  "bbox_right": 1919,
+  "bbox_right": 9599,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 4,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d0a1f0ef-3015-46c6-9d17-2540a1324b04",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"263f3ae0-f860-4f71-b15b-9e6ca1ee82c4",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 1080,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a0b7b82c-dc69-457c-b558-6328d2f7cec2","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9ed3d4ad-5a2c-4e81-a7d0-72f3fc2a1cb5","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,12 +54,12 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d0a1f0ef-3015-46c6-9d17-2540a1324b04","path":"sprites/spr_sky/spr_sky.yy",},},},"Disabled":false,"id":"3a0edcd5-6d27-48fc-a37f-33478a7281d6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"263f3ae0-f860-4f71-b15b-9e6ca1ee82c4","path":"sprites/spr_sky/spr_sky.yy",},},},"Disabled":false,"id":"77ddc787-e7ee-45e2-8d97-6a77be3573a6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 960,
+    "xorigin": 4800,
     "yorigin": 540,
   },
   "swatchColours": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 1920,
+  "width": 9600,
 }

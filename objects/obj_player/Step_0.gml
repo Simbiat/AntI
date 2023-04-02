@@ -1,12 +1,14 @@
 event_inherited();
 if !is_grounded {
-	sprite_index = player_jump;
+	sprite_index = asset_get_index("char_"+string(obj_res_manager.charid)+"_jump");
 } else {
-	sprite_index = player_stand;
+	//Retrun ability to jump, as soon as we are grounded
+	canJump = true;
+	sprite_index = asset_get_index("char_"+string(obj_res_manager.charid)+"_stand");
 }
 if isDead {
 	hspeed = 0;
-	sprite_index = player_jump;
+	sprite_index = asset_get_index("char_"+string(obj_res_manager.charid)+"_jump");
 } else {
 	processActions();
 }
@@ -14,7 +16,7 @@ if isDead {
 //Check if any of the enemies are close
 /*
 var enemies = ds_list_create();
-var enemiesNumber = collision_rectangle_list(0, 0, x + sprite_width*2, room_height*global.screen_scale, obj_flying_bomb, false, true, enemies, false);
+var enemiesNumber = collision_rectangle_list(0, 0, x + sprite_width*2, room_height*global.screen_scale, obj_pop_star, false, true, enemies, false);
 if enemiesNumber > 0 {
     for (var i = 0; i < enemiesNumber; ++i;) {
 		var alreadyTargeted = false;

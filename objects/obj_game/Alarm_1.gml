@@ -1,2 +1,2 @@
-///@description Delay respawn
-game_restart();
+/// @description Enemy spawning
+spawn();
