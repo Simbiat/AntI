@@ -7,4 +7,5 @@ event_inherited();
 // When the game room starts, the transition "end" animation
 // will play, which is the second half of the whole transition.
 
+audio_stop_all();
 alarm[0] = 20;

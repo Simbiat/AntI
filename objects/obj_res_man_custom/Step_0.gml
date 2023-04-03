@@ -11,6 +11,11 @@ if gamepad != noone && gamepad_is_connected(gamepad) {
 			room_goto(main_room);
 		}
 	}
+	if gamepad_button_check_pressed(gamepad, gp_face2) {
+		if room == title_menu {
+			game_end_alt();
+		}
+	}
 	//Character selection with gamepad
 	//For some reason gp_select is always registeed at gamepad slot 0, so using a "backup"
 	//Bug reported under #208139 ticket

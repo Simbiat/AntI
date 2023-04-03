@@ -4,7 +4,7 @@
   "name": "spr_sky",
   "bbox_bottom": 1079,
   "bbox_left": 0,
-  "bbox_right": 9599,
+  "bbox_right": 8191,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 4,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"263f3ae0-f860-4f71-b15b-9e6ca1ee82c4",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3dec226a-b2aa-4744-ab84-3bf22218bb0a",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 1080,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9ed3d4ad-5a2c-4e81-a7d0-72f3fc2a1cb5","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5661aa01-8b3f-4d12-88ed-14f5c5b07751","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,12 +54,12 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"263f3ae0-f860-4f71-b15b-9e6ca1ee82c4","path":"sprites/spr_sky/spr_sky.yy",},},},"Disabled":false,"id":"77ddc787-e7ee-45e2-8d97-6a77be3573a6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3dec226a-b2aa-4744-ab84-3bf22218bb0a","path":"sprites/spr_sky/spr_sky.yy",},},},"Disabled":false,"id":"f94aec33-9732-4821-b665-3e3792278e24","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 4800,
+    "xorigin": 4096,
     "yorigin": 540,
   },
   "swatchColours": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 9600,
+  "width": 8192,
 }
