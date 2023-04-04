@@ -1,0 +1,1 @@
+obj_res_manager.bg_offset = 0;

@@ -32,6 +32,10 @@
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"title_menu","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"rm_menu","varType":5,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"gamepad","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"noone","varType":5,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"gamepadType","filters":[],"listItems":[
+        "\"xinput\"",
+        "\"ps\"",
+      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"\"xinput\"","varType":6,},
   ],
   "solid": false,
   "spriteId": null,

@@ -86,7 +86,7 @@ function applyGravity() {
 function daveLand()
 {
 	if (closest_floor == room_floor) {
-		screenshake(0.5, 1, 0.25, false, false, false, true);
+		screenshake(0.5, 1, 0.25, false, false, false, true, 0.5);
 	}
 	play_sound(snd_landing);
 	isJumping = false;
@@ -126,15 +126,4 @@ function horizontalCollisions()
 			}
 		}
 	}
-}
-
-function screenshake(time, magnitude, fade = 0.25, left = true, right = true, top = true, bottom = true) {
-	obj_screenshake.shaking = true;
-	obj_screenshake.time = time;
-	obj_screenshake.magnitude = magnitude;
-	obj_screenshake.fade = fade;
-	obj_screenshake.left = left;
-	obj_screenshake.right = right;
-	obj_screenshake.top = top;
-	obj_screenshake.bottom = bottom;
 }

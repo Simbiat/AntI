@@ -3,12 +3,12 @@ if sprite_index == spr_waveform {
 		//Change sprite
 		sprite_index = spr_button_prompts;
 		//Reset scale
-		image_xscale = 1;
-		image_yscale = 1;
+		image_xscale = 2;
+		image_yscale = 2;
 		//Reset angle
 		image_angle = 0;
 		//Randomize button prompt
-		image_index = irandom_range(0, 3);
+		button = choose("up", "down", "left", "right");
 	} else {
 		warning--;
 		//Spin
@@ -29,8 +29,8 @@ if sprite_index == spr_waveform {
 		} else {
 			//Check if we pressed a button to jump
 			if tryingToJump() {
-				switch (image_index) {
-				    case 1:
+				switch (button) {
+				    case "right":
 				        //Expect "right"
 						if pressedRight() {
 							right = true;
@@ -38,7 +38,7 @@ if sprite_index == spr_waveform {
 							wrong = true;
 						}
 				        break;
-				    case 2:
+				    case "down":
 				        //Expect "down"
 						if pressedDown() {
 							right = true;
@@ -46,7 +46,7 @@ if sprite_index == spr_waveform {
 							wrong = true;
 						}
 				        break;
-				    case 3:
+				    case "left":
 				        //Expect "left"
 						if pressedLeft() {
 							right = true;
@@ -77,7 +77,7 @@ if sprite_index == spr_waveform {
 					obj_game.combo++;
 					//Add points
 					obj_game.points += obj_game.combo*100;
-					screenshake(2, 1, 0.25, false, true, true, false);
+					screenshake(1, 1, 0.25, false, true, true, false, 0.1);
 				}
 				if initial && (right || wrong) {
 					obj_game.initialPromptUsed = true;
@@ -98,3 +98,5 @@ if sprite_index == spr_waveform {
 		}
 	}
 }
+//Set the image index for the button prompt, if button was selected
+buttonSpriteSelect();

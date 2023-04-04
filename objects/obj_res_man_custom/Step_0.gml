@@ -1,29 +1,33 @@
-// Inherit the parent event
-event_inherited();
-
+//We are not inheriting default buttonSelection() function
+//since we are not using classic menu buttons
 if gamepad != noone && gamepad_is_connected(gamepad) {
 	//Menu on gamepad Start button
 	if gamepad_button_check_pressed(gamepad, gp_start) {
-		if room == main_room {
-			audio_stop_all();
-			room_goto(title_menu);
-		} else {
-			room_goto(main_room);
+		with obj_button_play {
+			event_user(0);
 		}
 	}
-	if gamepad_button_check_pressed(gamepad, gp_face2) {
-		if room == title_menu {
-			game_end_alt();
+	if gamepad_button_check_pressed(gamepad, gp_select) {
+		with obj_button_quit {
+			event_user(0);
 		}
 	}
 	//Character selection with gamepad
-	//For some reason gp_select is always registeed at gamepad slot 0, so using a "backup"
-	//Bug reported under #208139 ticket
-	if room == title_menu && (gamepad_button_check_released(gamepad, gp_select) && gamepad_button_check_released(0, gp_select)) {
-		if charid == 0 {
-			charSelect(1);
-		} else {
-			charSelect(0);
+	if room == title_menu && (gamepad_button_check_released(gamepad, gp_padl) || gamepad_button_check_released(gamepad, gp_padr)) {
+		with obj_button_char_select {
+			event_user(0);
+		}
+	}
+	//Sound control
+	if room == title_menu {
+		if gamepad_button_check_released(gamepad, gp_padu) {
+			with volume_up {
+				event_user(0);
+			}
+		} else if gamepad_button_check_released(gamepad, gp_padd) {
+			with volume_down {
+				event_user(0);
+			}
 		}
 	}
 }

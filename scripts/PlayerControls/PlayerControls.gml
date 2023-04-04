@@ -11,7 +11,7 @@ function tryingToJump()
 function pressedUp()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face4) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face4) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padu) {
 			return true;
 		}
 	}
@@ -25,7 +25,7 @@ function pressedUp()
 function pressedDown()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face1) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face1) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padd) {
 			return true;
 		}
 	}
@@ -39,7 +39,7 @@ function pressedDown()
 function pressedLeft()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face3) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face3) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padl) {
 			return true;
 		}
 	}
@@ -53,7 +53,7 @@ function pressedLeft()
 function pressedRight()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face2) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face2) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padr) {
 			return true;
 		}
 	}
@@ -131,6 +131,6 @@ function shoot(_target = noone)
 
 function punish(ceiling = false)
 {
-	screenshake(1, 2, 0.25, false, true, true, false);
+	screenshake(1, 2, 0.25, false, true, true, false, 0.5);
 	daveJump(true, ceiling);	
 }
