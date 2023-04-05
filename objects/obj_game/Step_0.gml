@@ -1,9 +1,3 @@
-if musicID != noone {
-	timeLeft = audio_sound_length(musicID) - audio_sound_get_track_position(musicID);
-	if timeLeft < 0 {
-		timeLeft = 0;	
-	}
-}
 //Check if player object exists and off the ground
 if instance_exists(obj_player) {
 	if !instance_exists(obj_prompt) && alarm[3] < 0 {

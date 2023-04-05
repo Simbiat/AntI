@@ -1,5 +1,5 @@
 function screenshake(_time, _magnitude, _fade = 0.25, _left = true, _right = true, _top = true, _bottom = true, _vibration = 0) {
-	if object_exists(obj_screenshake) {
+	if instance_exists(obj_screenshake) {
 		with obj_screenshake {
 			shaking = true;
 			time = _time;

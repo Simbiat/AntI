@@ -3,4 +3,4 @@ event_inherited();
 
 //Default values
 music_file = bensound_highoctane;
-music_offset = 2.5;
+music_offset = 0;

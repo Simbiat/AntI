@@ -1,7 +1,30 @@
 //Check if jumping
 function tryingToJump()
 {
-	if  pressedUp() or pressedDown() or pressedRight() or pressedLeft() {
+	if pressedJump() or pressedUp() or pressedDown() or pressedRight() or pressedLeft() {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function tryingToMusic()
+{
+	if pressedUp() or pressedDown() or pressedRight() or pressedLeft() {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function pressedJump()
+{
+	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padu) || gamepad_axis_value(obj_res_manager.gamepad, gp_axislv) < -0.5 {
+			return true;
+		}
+	}
+	if keyboard_check_pressed(vk_space) or keyboard_check_pressed(vk_numpad5) {
 		return true;
 	} else {
 		return false;
@@ -11,7 +34,7 @@ function tryingToJump()
 function pressedUp()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face4) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padu) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face4) {
 			return true;
 		}
 	}
@@ -25,7 +48,7 @@ function pressedUp()
 function pressedDown()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face1) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padd) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face1) {
 			return true;
 		}
 	}
@@ -39,7 +62,7 @@ function pressedDown()
 function pressedLeft()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face3) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padl) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face3) {
 			return true;
 		}
 	}
@@ -53,7 +76,7 @@ function pressedLeft()
 function pressedRight()
 {
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
-		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face2) || gamepad_button_check_pressed(obj_res_manager.gamepad, gp_padr) {
+		if gamepad_button_check_pressed(obj_res_manager.gamepad, gp_face2) {
 			return true;
 		}
 	}

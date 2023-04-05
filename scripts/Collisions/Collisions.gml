@@ -23,7 +23,9 @@ function damagePlayer()
 			}
 		}
 		if obj_game.hp < 0 {
-			game_restart();
+			with obj_button_quit {
+				event_user(0);	
+			}
 		}
 	}
 }
@@ -42,4 +44,34 @@ function damageEnemy(addPoints = true)
 		blink_on_hit = true;
 		alarm[0] = 0.25*room_speed;
 	}
+}
+
+function autoTarget(targetXPos = 0)
+{
+	var toTarget = noone;
+	var enemiesNumber = instance_number(obj_enemy);
+	if enemiesNumber > 0 {
+	    for (var i = 0; i < enemiesNumber; ++i;) {
+			var alreadyTargeted = false;
+			//Get the enemy
+			var enemy = instance_find(obj_enemy,i);
+			//Enemy is a potential target only if it's X position is less than argument
+			if enemy.x <= targetXPos {
+				//Check if any instakill bullets are targetting this enemy already
+				for (var j = 0; j < instance_number(obj_bullet); ++j;) {
+					var bullet = instance_find(obj_bullet,j);
+					if bullet.target == enemy {
+						alreadyTargeted = true;
+						//Break loop early
+						break;
+					}
+				}
+				if !alreadyTargeted {
+					//Shoot a note towards the enemy
+					toTarget = enemy;
+				}
+			}
+	    }
+	}
+	return toTarget;
 }

@@ -65,9 +65,19 @@ if !initial {
 	image_xscale = 0;
 	image_yscale = 0;
 } else {
+	sprite_index = spr_space;
 	image_xscale = 2;
 	image_yscale = 2;
 	//Randomize button prompt
-	button = choose("up", "down", "left", "right");
-	buttonSpriteSelect();
+	//button = choose("up", "down", "left", "right");
+	//buttonSpriteSelect();
+	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+		if obj_res_manager.gamepadType == "ps" {
+			image_index = 2;
+		} else {
+			image_index = 1;
+		}
+	} else {
+		image_index = 0;
+	}
 }

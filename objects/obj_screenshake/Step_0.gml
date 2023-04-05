@@ -1,6 +1,6 @@
 if (shaking) 
 { 
-	if object_exists(obj_res_manager) && obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+	if instance_exists(obj_res_manager) && obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
 		gamepad_set_vibration(obj_res_manager.gamepad, vibration, vibration);
 	}
 	time -= 0.1; 
@@ -28,7 +28,7 @@ if (shaking)
 		if (magnitude <= 0) { 
 			camera_set_view_pos(view_camera[0], 0, 0); 
 			shaking = false;
-			if object_exists(obj_res_manager) && obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
+			if instance_exists(obj_res_manager) && obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
 				gamepad_set_vibration(obj_res_manager.gamepad, 0, 0);
 			}
 		} 
