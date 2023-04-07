@@ -1,31 +1,33 @@
 function spawn()
 {
-	var enemy = enemySelection();
-	switch (enemy) {
-	    case obj_autotune:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_autotune)/2, random_range(900 - sprite_get_height(spr_autotune)/2, sprite_get_height(spr_autotune)/2), "Instances", obj_autotune);
-	        break;
-	    case obj_beat_thief:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_beat_thief)/2, random_range(900 - sprite_get_height(spr_beat_thief)/2, sprite_get_height(spr_beat_thief)/2), "Instances", obj_beat_thief);
-	        break;
-	    case obj_dj_bot:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_dj_bot)/2, random_range(900 - sprite_get_height(spr_dj_bot)/2, sprite_get_height(spr_dj_bot)/2), "Instances", obj_dj_bot);
-	        break;
-	    case obj_executive:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_executive)/2, random_range(900 - sprite_get_height(spr_executive)/2, sprite_get_height(spr_executive)/2), "Instances", obj_executive);
-	        break;
-	    case obj_lawyer:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_lawyer)/2, random_range(900 - sprite_get_height(spr_lawyer)/2, sprite_get_height(spr_lawyer)/2), "Instances", obj_lawyer);
-	        break;
-	    case obj_mogul:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_mogul)/2, random_range(900 - sprite_get_height(spr_mogul)/2, sprite_get_height(spr_mogul)/2), "Instances", obj_mogul);
-	        break;
-	    case obj_pop_star:
-	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_pop_star)/2, random_range(900 - sprite_get_height(spr_pop_star)/2, sprite_get_height(spr_pop_star)/2), "Instances", obj_pop_star);
-	        break;
-	    default:
-	        // code here
-	        break;
+	if obj_game.generate_enemies {
+		var enemy = enemySelection();
+		switch (enemy) {
+		    case obj_autotune:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_autotune)/2, random_range(900 - sprite_get_height(spr_autotune)/2, sprite_get_height(spr_autotune)/2), "Instances", obj_autotune);
+		        break;
+		    case obj_beat_thief:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_beat_thief)/2, random_range(900 - sprite_get_height(spr_beat_thief)/2, sprite_get_height(spr_beat_thief)/2), "Instances", obj_beat_thief);
+		        break;
+		    case obj_dj_bot:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_dj_bot)/2, random_range(900 - sprite_get_height(spr_dj_bot)/2, sprite_get_height(spr_dj_bot)/2), "Instances", obj_dj_bot);
+		        break;
+		    case obj_executive:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_executive)/2, random_range(900 - sprite_get_height(spr_executive)/2, sprite_get_height(spr_executive)/2), "Instances", obj_executive);
+		        break;
+		    case obj_lawyer:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_lawyer)/2, random_range(900 - sprite_get_height(spr_lawyer)/2, sprite_get_height(spr_lawyer)/2), "Instances", obj_lawyer);
+		        break;
+		    case obj_mogul:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_mogul)/2, random_range(900 - sprite_get_height(spr_mogul)/2, sprite_get_height(spr_mogul)/2), "Instances", obj_mogul);
+		        break;
+		    case obj_pop_star:
+		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_pop_star)/2, random_range(900 - sprite_get_height(spr_pop_star)/2, sprite_get_height(spr_pop_star)/2), "Instances", obj_pop_star);
+		        break;
+		    default:
+		        // code here
+		        break;
+		}
 	}
 }
 

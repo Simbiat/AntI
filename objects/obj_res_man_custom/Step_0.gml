@@ -39,3 +39,6 @@ if instance_exists(obj_player) && obj_player.is_grounded == false {
 	layer_x("sky", -lerp(0, bg_offset, 0.65));
 	bg_offset += obj_player.stride;
 }
+
+//Desaturation level
+fx_set_parameter(layer_get_fx("Desaturation"), "g_Intensity", desaturation);

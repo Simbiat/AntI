@@ -36,6 +36,7 @@ if sprite_index == spr_waveform {
 						wrong = true;
 					}
 					obj_game.initialPromptUsed = true;
+					obj_game.generate_enemies = true;
 					//Spawn first enemy
 					spawn();
 				}
@@ -86,10 +87,12 @@ if sprite_index == spr_waveform {
 						}
 					}
 					if right {
-						obj_game.combo++;
-						//Add points
-						obj_game.points += obj_game.combo*100;
-						screenshake(1, 1, 0.25, false, true, true, false, 0.1);
+						if !obj_player.is_grounded {
+							obj_game.combo++;
+							//Add points
+							obj_game.points += obj_game.combo*obj_game.score_multiplier;
+							screenshake(1, 1, 0.25, false, true, true, false, 0.1);
+						}
 					}
 				}
 			}

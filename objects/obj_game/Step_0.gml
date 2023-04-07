@@ -1,6 +1,6 @@
 //Check if player object exists and off the ground
 if instance_exists(obj_player) {
-	if !instance_exists(obj_prompt) && alarm[3] < 0 {
+	if allow_prompts && !instance_exists(obj_prompt) && alarm[3] < 0 {
 		//Generate prompt
 		if initialPromptUsed {
 			instance_create_layer(room_width/2, room_height/2, "UI", obj_prompt, {ttl: 2*room_speed});
@@ -22,14 +22,31 @@ if instance_exists(obj_player) {
 		alarm[4] = -1;
 	}
 }
-if combo >= 35 {
+if combo >= 55 {
+	score_multiplier = 7;
+} else if combo >= 45 {
+	score_multiplier = 6;
+} else if combo >= 35 {
 	score_multiplier = 5;
 } else if combo >= 25 {
 	score_multiplier = 4;
 } else if combo >= 15 {
 	score_multiplier = 3;
-} else if combo >= 5 {
+} else if combo >= 7 {
 	score_multiplier = 2;
 } else {
 	score_multiplier = 1;
+}
+
+//Update highest combo
+if combo > obj_res_manager.combo_highest {
+	obj_res_manager.combo_highest = combo;
+	if obj_res_manager.desaturation > 0 {
+		obj_res_manager.desaturation -= 0.01538461538461538;
+	}
+}
+
+//Update highest points
+if points > obj_res_manager.points_highest {
+	obj_res_manager.points_highest = points;
 }
