@@ -1,7 +1,12 @@
 function spawn()
 {
 	if obj_game.generate_enemies {
-		var enemy = enemySelection();
+		if obj_game.enemiesSpawned >= 10 {
+			var enemy = enemySelection();
+		} else {
+			var enemy = obj_pop_star;
+			obj_game.enemiesSpawned++;
+		}
 		switch (enemy) {
 		    case obj_autotune:
 		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_autotune)/2, random_range(900 - sprite_get_height(spr_autotune)/2, sprite_get_height(spr_autotune)/2), "Instances", obj_autotune);

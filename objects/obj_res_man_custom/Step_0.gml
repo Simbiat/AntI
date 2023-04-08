@@ -41,4 +41,13 @@ if instance_exists(obj_player) && obj_player.is_grounded == false {
 }
 
 //Desaturation level
-fx_set_parameter(layer_get_fx("Desaturation"), "g_Intensity", desaturation);
+if os_browser == browser_not_a_browser {
+	if instance_exists(obj_FTF_greyScale) {
+		obj_FTF_greyScale.intensity = 0;
+	}
+	fx_set_parameter(layer_get_fx("Desaturation"), "g_Intensity", desaturation);
+} else {
+	if instance_exists(obj_FTF_greyScale) {
+		obj_FTF_greyScale.intensity = desaturation;
+	}
+}

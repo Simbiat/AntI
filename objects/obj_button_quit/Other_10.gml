@@ -5,7 +5,10 @@ audio_stop_all();
 if room == obj_res_manager.title_menu {
 	game_end_alt();
 } else {
-	layer_sequence_create("BlackInOut", room_width/2, room_height/2, seq_black_out);
-	obj_res_manager.black_in = true;
-	alarm[1] = 119;
+	if !obj_res_manager.changingRooms {
+		obj_res_manager.changingRooms = true;
+		layer_sequence_create("BlackInOut", room_width/2, room_height/2, seq_black_out);
+		obj_res_manager.black_in = true;
+		alarm[1] = 119;
+	}
 }

@@ -1,6 +1,7 @@
 function damagePlayer()
 {
 	if instance_exists(obj_player) {
+		obj_game.combo = 0;
 		if obj_game.hp >= 0 {
 			if !obj_player.invincible {
 				obj_game.hp -= 1;
@@ -50,6 +51,7 @@ function damageEnemy(addPoints = true)
 		//Add points
 		if addPoints {
 			obj_game.points += obj_game.score_multiplier*points;
+			instance_create_layer(x, y, "UI", obj_points, {points: obj_game.score_multiplier*points});
 		}
 		//Destroy the instance
 		instance_destroy();
