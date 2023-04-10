@@ -1,0 +1,47 @@
+{
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_vinyl",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":7,"isDnD":false,},
+  ],
+  "managed": true,
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_physical","path":"objects/obj_physical/obj_physical.yy",},"propertyId":{"name":"spawnGrounded","path":"objects/obj_physical/obj_physical.yy",},"value":"False",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_physical","path":"objects/obj_physical/obj_physical.yy",},"propertyId":{"name":"stride","path":"objects/obj_physical/obj_physical.yy",},"value":"2",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_physical","path":"objects/obj_physical/obj_physical.yy",},"propertyId":{"name":"gravityForce","path":"objects/obj_physical/obj_physical.yy",},"value":"3",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy_projectile","path":"objects/obj_enemy_projectile/obj_enemy_projectile.yy",},"propertyId":{"name":"destroyedSprite","path":"objects/obj_enemy_projectile/obj_enemy_projectile.yy",},"value":"spr_vinyl_shattered",},
+  ],
+  "parent": {
+    "name": "Projectiles",
+    "path": "folders/Objects/Projectiles.yy",
+  },
+  "parentObjectId": {
+    "name": "obj_enemy_projectile",
+    "path": "objects/obj_enemy_projectile/obj_enemy_projectile.yy",
+  },
+  "persistent": false,
+  "physicsAngularDamping": 0.1,
+  "physicsDensity": 0.5,
+  "physicsFriction": 0.2,
+  "physicsGroup": 1,
+  "physicsKinematic": false,
+  "physicsLinearDamping": 0.1,
+  "physicsObject": false,
+  "physicsRestitution": 0.1,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsShapePoints": [],
+  "physicsStartAwake": true,
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"dropped","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
+  ],
+  "solid": false,
+  "spriteId": {
+    "name": "spr_vinyl",
+    "path": "sprites/spr_vinyl/spr_vinyl.yy",
+  },
+  "spriteMaskId": null,
+  "visible": true,
+}

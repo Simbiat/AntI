@@ -1,4 +1,5 @@
 event_inherited();
+stride = obj_res_manager.stride;
 if !is_grounded {
 	sprite_index = asset_get_index("char_"+string(obj_res_manager.charid)+"_jump");
 } else {

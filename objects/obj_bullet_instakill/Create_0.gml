@@ -1,3 +1,6 @@
+//Define sprite frame
+setNoteFrame();
+
 //Define speed based on combo
 if obj_game.combo > max_speed {
 	speed = max_speed;

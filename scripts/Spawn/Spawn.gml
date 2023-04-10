@@ -1,37 +1,45 @@
 function spawn()
 {
 	if obj_game.generate_enemies {
-		if obj_game.enemiesSpawned >= 10 {
-			var enemy = enemySelection();
-		} else {
-			var enemy = obj_pop_star;
-			obj_game.enemiesSpawned++;
-		}
-		switch (enemy) {
-		    case obj_autotune:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_autotune)/2, random_range(900 - sprite_get_height(spr_autotune)/2, sprite_get_height(spr_autotune)/2), "Instances", obj_autotune);
-		        break;
-		    case obj_beat_thief:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_beat_thief)/2, random_range(900 - sprite_get_height(spr_beat_thief)/2, sprite_get_height(spr_beat_thief)/2), "Instances", obj_beat_thief);
-		        break;
-		    case obj_dj_bot:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_dj_bot)/2, random_range(900 - sprite_get_height(spr_dj_bot)/2, sprite_get_height(spr_dj_bot)/2), "Instances", obj_dj_bot);
-		        break;
-		    case obj_executive:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_executive)/2, random_range(900 - sprite_get_height(spr_executive)/2, sprite_get_height(spr_executive)/2), "Instances", obj_executive);
-		        break;
-		    case obj_lawyer:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_lawyer)/2, random_range(900 - sprite_get_height(spr_lawyer)/2, sprite_get_height(spr_lawyer)/2), "Instances", obj_lawyer);
-		        break;
-		    case obj_mogul:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_mogul)/2, random_range(900 - sprite_get_height(spr_mogul)/2, sprite_get_height(spr_mogul)/2), "Instances", obj_mogul);
-		        break;
-		    case obj_pop_star:
-		        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_pop_star)/2, random_range(900 - sprite_get_height(spr_pop_star)/2, sprite_get_height(spr_pop_star)/2), "Instances", obj_pop_star);
-		        break;
-		    default:
-		        // code here
-		        break;
+		//For testing only!
+		//if !instance_exists(obj_mogul) {
+		//	instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_mogul)/2, random_range(900 - sprite_get_height(spr_mogul)/2, sprite_get_height(spr_mogul)/2), "Instances", obj_mogul);
+		//}
+		//return;
+		
+		if instance_number(obj_enemy) < 5 {
+			if obj_game.enemiesSpawned >= 10 {
+				var enemy = enemySelection();
+			} else {
+				var enemy = obj_pop_star;
+				obj_game.enemiesSpawned++;
+			}
+			switch (enemy) {
+			    case obj_autotune:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_autotune)/2, random_range(900 - sprite_get_height(spr_autotune)/2, sprite_get_height(spr_autotune)/2), "Instances", obj_autotune);
+			        break;
+			    case obj_beat_thief:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_beat_thief)/2, random_range(900 - sprite_get_height(spr_beat_thief)/2, sprite_get_height(spr_beat_thief)/2), "Instances", obj_beat_thief);
+			        break;
+			    case obj_dj_bot:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_dj_bot)/2, 100, "Instances", obj_dj_bot);
+			        break;
+			    case obj_executive:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_executive)/2, 900, "Instances", obj_executive);
+			        break;
+			    case obj_lawyer:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_lawyer)/2, 900, "Instances", obj_lawyer);
+			        break;
+			    case obj_mogul:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_mogul)/2, random_range(900 - sprite_get_height(spr_mogul)/2, sprite_get_height(spr_mogul)/2), "Instances", obj_mogul);
+			        break;
+			    case obj_pop_star:
+			        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_pop_star)/2, random_range(900 - sprite_get_height(spr_pop_star)/2, sprite_get_height(spr_pop_star)/2), "Instances", obj_pop_star);
+			        break;
+			    default:
+			        // code here
+			        break;
+			}
 		}
 	}
 }
@@ -51,12 +59,12 @@ function enemySelection()
 	//Range start with 1 instead of 0 to allow complete negation of check, if we are at maximum of possible objects
 	//Range ends with 103 to accomodate it starting from 1 instead of 0
 	var chance = random_range(1, 101);
-	if chance <= 41*maxPopStar {
+	if chance <= 36*maxPopStar {
 		enemy = obj_pop_star;
-	} else if chance <= 56*maxLawyer {
-		enemy = obj_lawyer;
-	} else if chance <= 71*maxDJ {
+	} else if chance <= 56*maxDJ {
 		enemy = obj_dj_bot;
+	} else if chance <= 71*maxLawyer {
+		enemy = obj_lawyer;
 	} else if chance <= 79*maxMogul {
 		enemy = obj_mogul;
 	} else if chance <= 87*maxExec {
@@ -67,4 +75,30 @@ function enemySelection()
 		enemy = obj_beat_thief;
 	}
 	return enemy;
+}
+
+function setNoteFrame()
+{
+	//Define sprite frame
+	if randomFrame || !instance_exists(obj_game) {
+		image_index = irandom_range(0, image_number-1);
+	} else {
+		if obj_game.combo >= 55 {
+			image_index = 5;
+		} else if obj_game.combo >= 45 {
+			image_index = 5;
+		} else if obj_game.combo >= 35 {
+			image_index = 5;
+		} else if obj_game.combo >= 25 {
+			image_index = 4;
+		} else if obj_game.combo >= 15 {
+			image_index = 3;
+		} else if obj_game.combo >= 7 {
+			image_index = 2;
+		} else if obj_game.combo >= 2 {
+			image_index = 1;
+		} else {
+			image_index = 0;
+		}
+	}
 }

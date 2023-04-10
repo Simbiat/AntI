@@ -1,3 +1,6 @@
+//Define sprite frame
+setNoteFrame();
+
 //Define speed based on combo
 if obj_game.combo > max_speed {
 	speed = max_speed;
@@ -6,7 +9,7 @@ if obj_game.combo > max_speed {
 }
 //Define scale based on combo
 if obj_game.combo > max_speed {
-	var scale = min(10, max((obj_game.combo - max_speed), 1))/100;
+	var scale = min(10, max((obj_game.combo - max_speed), 1))/10;
 	image_yscale += scale;
 	image_xscale += scale;
 }

@@ -6,21 +6,30 @@ function applyPhysics()
 	closest_right_wall = room_right_wall;
 	is_grounded = isGrounded();
 	if object_get_parent(object_index) == obj_enemy {
-		if facing == "left" {
-			if destroyOnLeft {
-				move_towards_point(closest_left_wall.bbox_left - sprite_width/2, y, hspeed);
+		if !isAttacking || (isAttacking && attackWhileMoving) {
+			if facing == "left" {
+				if destroyOnLeft {
+					move_towards_point(closest_left_wall.bbox_left - sprite_width/2, y, hspeed);
+				} else {
+					if bbox_left > closest_left_wall.bbox_right {
+						move_towards_point(closest_left_wall.bbox_right, y, hspeed);
+					} else {
+						facing = "right";
+						image_xscale = -1*image_xscale;
+					}
+				}
 			} else {
-				move_towards_point(closest_left_wall.bbox_right, y, hspeed);
+				if bbox_right < closest_right_wall.bbox_left {
+					move_towards_point(closest_right_wall.bbox_right, y, hspeed);
+				} else {
+					facing = "left";
+					image_xscale = -1*image_xscale;
+				}
 			}
-		} else {
-			move_towards_point(closest_right_wall.bbox_right, y, hspeed);
 		}
-		//Player seems to work fine with just collision event, but enemies get too far without this
-		//horizontalCollisions();
 	} else {
 		applyGravity();
 	}
-	//move_bounce_all(false);
 }
 
 function ground()

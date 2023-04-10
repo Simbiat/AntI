@@ -42,7 +42,7 @@ if combo >= 55 {
 if combo > obj_res_manager.combo_highest {
 	obj_res_manager.combo_highest = combo;
 	if obj_res_manager.desaturation > 0 {
-		obj_res_manager.desaturation -= 0.01538461538461538;
+		obj_res_manager.desaturation -= 0.01538461538461538*2;
 	}
 }
 

@@ -11,8 +11,9 @@
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"max_speed","path":"objects/obj_bullet/obj_bullet.yy",},"value":"5",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"gravity","path":"objects/obj_bullet/obj_bullet.yy",},"value":"0",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"image_yscale","path":"objects/obj_bullet/obj_bullet.yy",},"value":"0.075",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"image_xscale","path":"objects/obj_bullet/obj_bullet.yy",},"value":"0.075",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"image_yscale","path":"objects/obj_bullet/obj_bullet.yy",},"value":"1.25",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"image_xscale","path":"objects/obj_bullet/obj_bullet.yy",},"value":"1.25",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"propertyId":{"name":"randomFrame","path":"objects/obj_bullet/obj_bullet.yy",},"value":"True",},
   ],
   "parent": {
     "name": "Projectiles",
@@ -38,8 +39,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_bullet",
-    "path": "sprites/spr_bullet/spr_bullet.yy",
+    "name": "spr_notes",
+    "path": "sprites/spr_notes/spr_notes.yy",
   },
   "spriteMaskId": null,
   "visible": true,

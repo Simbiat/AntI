@@ -1,7 +1,6 @@
 #region exit conditions
 
 	if(surface_width <= 0 || surface_height <= 0){
-		show_debug_message("filter: Wrong Dimensions");
 		return;
 	}
 

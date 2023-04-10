@@ -32,12 +32,19 @@ if gamepad != noone && gamepad_is_connected(gamepad) {
 	}
 }
 
+//Link speed to combo
+if instance_exists(obj_game) {
+	stride = clamp(obj_game.combo/2, 5, 25);
+} else {
+	stride = 5;	
+}
+
 //Parallax effect
 if instance_exists(obj_player) && obj_player.is_grounded == false {
-	layer_x("city_front", -lerp(0, bg_offset, 0.8));
+	layer_x("city_front", -lerp(0, bg_offset, bg_front_speed));
 	layer_x("city_back", -lerp(0, bg_offset, 0.5));
 	layer_x("sky", -lerp(0, bg_offset, 0.65));
-	bg_offset += obj_player.stride;
+	bg_offset += stride;
 }
 
 //Desaturation level

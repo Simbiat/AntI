@@ -1,7 +1,12 @@
 //We are targetting a specific enemy
-if target != noone && instance_exists(target) {
+if suckedIn {
 	gravity = 0;
-	move_towards_point(target.x, target.y, max_speed);
+	move_towards_point(suckX, suckY, max_speed);
+} else {
+	if target != noone && instance_exists(target) {
+		gravity = 0;
+		move_towards_point(target.x, target.y, max_speed);
+	}
 }
 
 //Apply gravity with every frame for parabelic movement
