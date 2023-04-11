@@ -50,7 +50,7 @@ function damageEnemy(addPoints = true)
 	if (hp == 0) {
 		//Add points
 		if addPoints {
-			obj_game.points += obj_game.score_multiplier*points;
+			obj_game.points_enemies += obj_game.score_multiplier*points;
 			instance_create_layer(x, y, "UI", obj_points, {points: obj_game.score_multiplier*points});
 		}
 		//Destroy the instance

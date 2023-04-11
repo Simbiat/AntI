@@ -90,7 +90,7 @@ if sprite_index == spr_waveform {
 						if !obj_player.is_grounded {
 							obj_game.combo++;
 							//Add points
-							obj_game.points += obj_game.combo*obj_game.score_multiplier;
+							obj_game.points_prompts += obj_game.combo*obj_game.score_multiplier;
 							if obj_game.combo == 55 || obj_game.combo == 45 || obj_game.combo == 35 || obj_game.combo == 25 || obj_game.combo == 15 || obj_game.combo == 7 || obj_game.combo == 2 {
 								//Generate combo object
 								instance_create_layer(x, y, "ComboText", obj_combo_text);

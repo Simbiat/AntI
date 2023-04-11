@@ -1,2 +1,2 @@
 /// @description Point per second
-points += 1;
+points_time += 1;

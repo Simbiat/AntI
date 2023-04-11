@@ -9,9 +9,9 @@ draw_set_valign(fa_middle);
 
 // Draw text on button
 if image_xscale >= 0.4 {
-	//draw_text_transformed(x, y + sprite_height/2, "Final score: "+string(obj_game.points)+"\nHighest score: "+string(obj_res_manager.points_highest), 0.5, 0.5, 0);
-	text_outline(x, y + sprite_height/2, "Final score: "+string(obj_game.points));
-	text_outline(x, y + sprite_height/2 + string_height("Final score: "+string(obj_game.points)), "Highest score: "+string(obj_res_manager.points_highest));
+	var finalScore = "Final score: "+string(obj_game.points_total);
+	text_outline(x, y + sprite_height/2, finalScore);
+	text_outline(x, y + sprite_height/2 + string_height(finalScore), "Highest score: "+string(obj_res_manager.points_highest));
 }
 
 // Reset alignment

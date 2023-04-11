@@ -44,9 +44,14 @@ if combo > obj_res_manager.combo_highest {
 	if obj_res_manager.desaturation > 0 {
 		obj_res_manager.desaturation -= 0.01538461538461538*2;
 	}
+} else {
+	if instance_exists(obj_player) && !obj_player.is_grounded && alarm[5] < 0 {
+		alarm[5] = 5*room_speed;
+	}
 }
 
 //Update highest points
-if points > obj_res_manager.points_highest {
-	obj_res_manager.points_highest = points;
+points_total = points_enemies + points_prompts + points_time;
+if points_total > obj_res_manager.points_highest {
+	obj_res_manager.points_highest = points_total;
 }

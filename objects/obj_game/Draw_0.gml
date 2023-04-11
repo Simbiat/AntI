@@ -7,7 +7,7 @@ if hp >= 0 {
 	var prevFont = draw_get_font();
 	draw_set_font(fnt_score);
 	draw_set_colour(make_colour_rgb(212, 175, 55));
-	text_outline(room_width/2, (room_height - 110), string(points), make_colour_rgb(212, 175, 55), c_black, 2);
+	text_outline(room_width/2, (room_height - 110), string(points_total), make_colour_rgb(212, 175, 55), c_black, 2);
 	draw_set_font(prevFont);
 	draw_set_colour(c_white);
 }
