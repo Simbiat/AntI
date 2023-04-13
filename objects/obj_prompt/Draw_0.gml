@@ -17,5 +17,9 @@ if wrong {
 	draw_self();
 	shader_reset();
 } else {
-	draw_self();
+	if image_alpha > 0 && (sprite_index = spr_button_prompts || sprite_index == spr_space) {
+		objectOutline(3.0, [1.0, 0.843, 0.0, 1.0]);
+	} else {
+		draw_self();
+	}
 }

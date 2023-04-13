@@ -2,6 +2,7 @@ function damagePlayer()
 {
 	if instance_exists(obj_player) {
 		obj_game.combo = 0;
+		musicDistort(true);
 		if obj_game.hp >= 0 {
 			if !obj_player.invincible {
 				obj_game.hp -= 1;
@@ -50,7 +51,9 @@ function damageEnemy(addPoints = true)
 	if (hp == 0) {
 		//Add points
 		if addPoints {
+			obj_game.enemiesKilled++;
 			obj_game.points_enemies += obj_game.score_multiplier*points;
+			addHPForScore();
 			instance_create_layer(x, y, "UI", obj_points, {points: obj_game.score_multiplier*points});
 		}
 		//Destroy the instance
@@ -58,6 +61,13 @@ function damageEnemy(addPoints = true)
 	} else {
 		blink_on_hit = true;
 		alarm[0] = 0.25*room_speed;
+	}
+}
+
+function addHPForScore()
+{
+	if (obj_game.points_enemies + obj_game.points_prompts + obj_game.points_time)%5000 == 0 {
+		obj_game.hp++;
 	}
 }
 

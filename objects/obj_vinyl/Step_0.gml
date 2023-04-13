@@ -12,6 +12,9 @@ if dropped && sprite_index != destroyedSprite {
 }
 if is_grounded {
 	sprite_index = destroyedSprite;
+	if sfxDeath == noone {
+		sfxDeath = play_sound(snd_crate);
+	}
 }
 
 if sprite_index != destroyedSprite {

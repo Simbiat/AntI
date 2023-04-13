@@ -2,6 +2,7 @@
 if vinyl != noone {
 	with vinyl {
 		dropped = true;
+		sfxID = play_sound(snd_bomb_drop);
 	}
 	vinyl = noone;
 } else {

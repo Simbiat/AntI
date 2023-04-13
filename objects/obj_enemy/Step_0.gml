@@ -12,5 +12,6 @@ if !isAttacking || (isAttacking && attackWhileMoving) {
 }
 //Destroy if the object is past left wall
 if bbox_right <= room_left_wall.bbox_left {
+	outsideBoundaries = true;
 	instance_destroy();	
 }

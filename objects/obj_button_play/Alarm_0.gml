@@ -3,4 +3,5 @@ if blackout != noone {
 	blackout = noone;
 }
 obj_res_manager.changingRooms = false;
+audio_stop_all();
 room_goto(main_room);

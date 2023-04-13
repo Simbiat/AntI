@@ -55,3 +55,6 @@ points_total = points_enemies + points_prompts + points_time;
 if points_total > obj_res_manager.points_highest {
 	obj_res_manager.points_highest = points_total;
 }
+
+//Sound effects
+musicGradualRestore();

@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Volume",
-    "path": "folders/Objects/UI/Volume.yy",
+    "path": "folders/Objects/TitleScreen/Volume.yy",
   },
   "parentObjectId": null,
   "persistent": false,

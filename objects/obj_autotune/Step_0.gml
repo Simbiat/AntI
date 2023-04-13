@@ -6,6 +6,7 @@ if instance_exists(obj_player) {
 }
 //Destroy if the object is past left wall
 if bbox_right <= room_left_wall.bbox_left {
+	outsideBoundaries = true;
 	instance_destroy();	
 }
 if alarm[1] < 0 && alarm[2] < 0 {
