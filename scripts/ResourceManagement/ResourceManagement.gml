@@ -20,7 +20,12 @@ function charSelect(charid)
 //Play sound only if music is not being played
 function play_sound(sound_asset, loop = false)
 {
-	return audio_play_sound(sound_asset, 1, loop,  obj_res_manager.gain);
+	if sound_asset == snd_rocket_engine {
+		//Otherwise the engine overpowers everything
+		return audio_play_sound(sound_asset, 1, loop,  obj_res_manager.gain*0.05);
+	} else {
+		return audio_play_sound(sound_asset, 1, loop,  obj_res_manager.gain);
+	}
 }
 
 function effectsReset()
@@ -37,7 +42,6 @@ function musicDistort(damage = false)
 {
 	//Reset the values of the effects
 	effectsReset();
-	show_debug_message("bitcrusher mix: "+string(obj_res_manager.audio_customBus.effects[0].mix))
 	if damage {
 		obj_res_manager.audio_customBus.effects[0].bypass = false;
 		obj_res_manager.audio_customBus.effects[1].bypass = false;

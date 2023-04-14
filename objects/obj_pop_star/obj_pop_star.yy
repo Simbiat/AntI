@@ -5,7 +5,7 @@
   "eventList": [],
   "managed": true,
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"sfx","path":"objects/obj_enemy/obj_enemy.yy",},"value":"choose(snd_fire, snd_fire_2)",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"propertyId":{"name":"sfx","path":"objects/obj_enemy/obj_enemy.yy",},"value":"snd_rocket_engine",},
   ],
   "parent": {
     "name": "Enemies",
