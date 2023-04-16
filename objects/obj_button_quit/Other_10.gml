@@ -7,7 +7,7 @@ if room == obj_res_manager.title_menu {
 } else {
 	if instance_exists(obj_game) && obj_game.hp >= 0 {
 		obj_game.hp = 0;
-		damagePlayer();
+		damagePlayer(true);
 	} else {
 		if !obj_res_manager.changingRooms {
 			obj_res_manager.changingRooms = true;

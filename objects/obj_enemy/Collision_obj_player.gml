@@ -3,6 +3,9 @@ if damagePlayerOnCollision {
 	if !other.is_grounded && !other.invincible {
 		damagePlayer();
 	}
+	if !touched {
+		touched = true;
+	}
 }
 if damageSelfOnCollision {
 	damageEnemy(false);	

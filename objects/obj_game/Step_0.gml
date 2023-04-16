@@ -7,7 +7,7 @@ if instance_exists(obj_player) {
 		} else {
 			instance_create_layer(room_width/2, room_height/2, "UI", obj_prompt, {ttl: 2*room_speed, initial: true});
 		}
-		alarm[3] = 2*room_speed + room_speed;
+		alarm[3] = 3*room_speed;
 	}
 	if  !obj_player.is_grounded {
 		//Spawn enemies only if we are in the air
@@ -39,6 +39,9 @@ if combo >= 55 {
 }
 
 //Update highest combo
+if combo > combo_highest {
+	combo_highest = combo;
+}
 if combo > obj_res_manager.combo_highest {
 	obj_res_manager.combo_highest = combo;
 	if obj_res_manager.desaturation > 0 {
@@ -48,12 +51,6 @@ if combo > obj_res_manager.combo_highest {
 	if instance_exists(obj_player) && !obj_player.is_grounded && alarm[5] < 0 {
 		alarm[5] = 5*room_speed;
 	}
-}
-
-//Update highest points
-points_total = points_enemies + points_prompts + points_time;
-if points_total > obj_res_manager.points_highest {
-	obj_res_manager.points_highest = points_total;
 }
 
 //Sound effects

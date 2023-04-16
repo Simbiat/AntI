@@ -1,11 +1,14 @@
-function damagePlayer()
+function damagePlayer(force = false)
 {
 	if instance_exists(obj_player) {
 		obj_game.combo = 0;
 		musicDistort(true);
 		if obj_game.hp >= 0 {
-			if !obj_player.invincible {
-				obj_game.hp -= 1;
+			if !obj_player.invincible || force {
+				obj_game.hp--;
+				if !force {
+					obj_game.hp_lost++;
+				}
 			}
 			if !obj_player.is_grounded {
 				with obj_player {
@@ -30,6 +33,11 @@ function damagePlayer()
 				}
 			}
 			if obj_game.hp < 0 {
+				//Update highest points
+				if totalScore() > obj_res_manager.points_highest {
+					obj_game.newRecord = true;
+					obj_res_manager.points_highest = obj_game.points_enemies + obj_game.points_prompts + obj_game.points_time;
+				}
 				//Disable prompts
 				obj_game.allow_prompts = false;
 				//Disable enemies
@@ -51,10 +59,13 @@ function damageEnemy(addPoints = true)
 	if (hp == 0) {
 		//Add points
 		if addPoints {
-			obj_game.enemiesKilled++;
-			obj_game.points_enemies += obj_game.score_multiplier*points;
+			if obj_game.hp >= 0 {
+				obj_game.enemies_killed++;
+				obj_game.points_enemies += obj_game.score_multiplier*points;
+			}
 			addHPForScore();
 			instance_create_layer(x, y, "UI", obj_points, {points: obj_game.score_multiplier*points});
+			killed = true;
 		}
 		//Destroy the instance
 		instance_destroy();
@@ -66,7 +77,7 @@ function damageEnemy(addPoints = true)
 
 function addHPForScore()
 {
-	if (obj_game.points_enemies + obj_game.points_prompts + obj_game.points_time)%5000 == 0 {
+	if totalScore()%5000 == 0 {
 		obj_game.hp++;
 	}
 }

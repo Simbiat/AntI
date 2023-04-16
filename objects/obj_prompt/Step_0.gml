@@ -21,6 +21,9 @@ if sprite_index == spr_waveform {
 	if !wrong && !right {
 		if timer <= 0 {
 			obj_game.combo = 0;
+			if !initial {
+				obj_game.prompts_missed++;
+			}
 			instance_destroy();
 		} else if timer <= input_buffer {
 			//Hide the button if its TTL has expired, but do not destroy it yet
@@ -82,6 +85,7 @@ if sprite_index == spr_waveform {
 					}
 					if wrong && instance_exists(obj_player) {
 						obj_game.combo = 0;
+							obj_game.prompts_incorrect++;
 						if !obj_player.is_grounded {
 							punish();
 							musicDistort();
@@ -91,6 +95,7 @@ if sprite_index == spr_waveform {
 						if !obj_player.is_grounded {
 							musicNormalize();
 							obj_game.combo++;
+							obj_game.prompts_correct++;
 							//Add points
 							obj_game.points_prompts += obj_game.combo*obj_game.score_multiplier;
 							addHPForScore();

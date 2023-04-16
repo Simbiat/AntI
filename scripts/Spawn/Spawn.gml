@@ -11,23 +11,23 @@ function spawn()
 	//return;
 	
 	//For testing post "tutorial" flow
-	//if obj_game.enemiesSpawned != 60 {
-	//	obj_game.enemiesSpawned = 60;
+	//if obj_game.enemies_spawned != 60 {
+	//	obj_game.enemies_spawned = 60;
 	//}
 	
 	//Scaling after tutorial mode
 	var max_enemies = 3;
 	var specialChance = 30
-	if obj_game.enemiesSpawned >= 60 {
-		max_enemies += floor((obj_game.enemiesSpawned - 60)/10);
-		specialChance += floor((obj_game.enemiesSpawned - 60)/10);
+	if obj_game.enemies_spawned >= 60 {
+		max_enemies += floor((obj_game.enemies_spawned - 60)/10);
+		specialChance += floor((obj_game.enemies_spawned - 60)/10);
 	}
 	
 	if instance_number(obj_enemy) >= max_enemies {
 		return;
 	}
 	var enemy = noone;
-	switch (obj_game.enemiesSpawned) {
+	switch (obj_game.enemies_spawned) {
 		//First 10 enemies are Pop Stars (basic enemies)
 	    case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9:
 	        enemy = obj_pop_star;
@@ -113,7 +113,7 @@ function spawn()
 			
 	//Actual spawn based on the enemy selected
 	if enemy != noone {
-		obj_game.enemiesSpawned++;
+		obj_game.enemies_spawned++;
 	}
 	switch (enemy) {
 	    case obj_autotune:

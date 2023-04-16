@@ -42,17 +42,19 @@ function musicDistort(damage = false)
 {
 	//Reset the values of the effects
 	effectsReset();
-	if damage {
-		obj_res_manager.audio_customBus.effects[0].bypass = false;
-		obj_res_manager.audio_customBus.effects[1].bypass = false;
+	if audio_is_playing(obj_res_manager.music_file) {
+		if damage {
+			obj_res_manager.audio_customBus.effects[0].bypass = false;
+			obj_res_manager.audio_customBus.effects[1].bypass = false;
+		}
+		obj_res_manager.audio_customBus.effects[2].bypass = false;
+		obj_game.alarm[6] = 5*room_speed;
 	}
-	obj_res_manager.audio_customBus.effects[2].bypass = false;
-	obj_game.alarm[6] = 5*room_speed;
 }
 
 function musicGradualRestore()
 {
-	if obj_game.alarm[6] > -1 {
+	if audio_is_playing(obj_res_manager.music_file) && obj_game.alarm[6] > -1 {
 		//Reduce mixing of bitcrusher, if used
 		if obj_res_manager.audio_customBus.effects[0].bypass == false {
 			if obj_res_manager.audio_customBus.effects[0].mix > 0.0 {
@@ -85,4 +87,77 @@ function musicNormalize()
 	obj_res_manager.audio_customBus.effects[0].bypass = true;
 	obj_res_manager.audio_customBus.effects[1].bypass = true;
 	obj_res_manager.audio_customBus.effects[2].bypass = true;
+}
+
+function gradeToColor(grade = "d")
+{
+	switch (string_lower(grade)) {
+	    case "d":
+	        return make_color_rgb(175, 123, 123);
+	        break;
+		case "c":
+	        return make_color_rgb(56, 154, 110);
+	        break;
+		case "b":
+	        return make_color_rgb(94, 147, 225);
+	        break;
+		case "a":
+	        return make_color_rgb(127, 64, 191);
+	        break;
+		case "s":
+	        return make_color_rgb(232, 141, 28);
+	        break;
+		case "ss":
+	        return make_color_rgb(247, 220, 111);
+	        break;
+		case "sss":
+	        return make_color_rgb(43, 200, 216);
+	        break;
+	    default:
+	        return c_white;
+	        break;
+	}
+}
+
+function gradeToNumber(grade = "d") {
+	switch (string_lower(grade)) {
+	    case "d":
+	        return 1;
+	        break;
+		case "c":
+	        return 2;
+	        break;
+		case "b":
+	        return 3;
+	        break;
+		case "a":
+	        return 4;
+	        break;
+		case "s":
+	        return 5;
+	        break;
+		case "ss":
+	        return 6;
+	        break;
+		case "sss":
+	        return 7;
+	        break;
+	    default:
+	        return 0;
+	        break;
+	}
+}
+
+function totalScore()
+{
+	return obj_game.points_enemies +
+			(obj_game.enemies_killed * 2) +
+			(obj_game.enemies_dodged * 1) +
+			obj_game.points_prompts +
+			(obj_game.prompts_correct * 5) +
+			(obj_game.prompts_incorrect * -10) +
+			(obj_game.prompts_missed * -1) +
+			(obj_game.combo_highest * 10) +
+			(-obj_game.hp_lost * 500) +
+			obj_game.points_time;
 }

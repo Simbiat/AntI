@@ -1,0 +1,1 @@
+targetValue = obj_game.enemies_killed;
