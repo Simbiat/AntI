@@ -1,1 +1,1 @@
-instance_create_layer(x-55, y-130, "EnemyProjectiles", obj_enemy_note);
+instance_create_layer(x-20, y-7, "EnemyProjectiles", obj_enemy_note);
