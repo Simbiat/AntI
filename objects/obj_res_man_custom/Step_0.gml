@@ -34,14 +34,16 @@ if gamepad != noone && gamepad_is_connected(gamepad) {
 
 //Link speed to combo
 if instance_exists(obj_game) {
-	stride = clamp(obj_game.combo/2, 5, 25);
+	stride = clamp(obj_game.combo/2, 15, 50);
 } else {
-	stride = 5;	
+	stride = 15;	
 }
 
 //Parallax effect
 if instance_exists(obj_player) && obj_player.is_grounded == false {
 	layer_x("city_front", -lerp(0, bg_offset, bg_front_speed));
+	//show_debug_message("layer_x: "+string(layer_get_x("city_front"))+"; offset: "+string(bg_offset))
+	//layer_x("city_front", -bg_offset);
 	layer_x("city_back", -lerp(0, bg_offset, 0.5));
 	layer_x("sky", -lerp(0, bg_offset, 0.65));
 	bg_offset += stride;
@@ -52,9 +54,15 @@ if os_browser == browser_not_a_browser {
 	if instance_exists(obj_FTF_greyScale) {
 		obj_FTF_greyScale.intensity = 0;
 	}
+	if instance_exists(obj_FTF_rgbNoise) {
+		obj_FTF_rgbNoise.intensity = 0;
+	}
 	fx_set_parameter(layer_get_fx("Desaturation"), "g_Intensity", desaturation);
 } else {
 	if instance_exists(obj_FTF_greyScale) {
 		obj_FTF_greyScale.intensity = desaturation;
+	}
+	if instance_exists(obj_FTF_rgbNoise) {
+		obj_FTF_rgbNoise.intensity = 0.1;
 	}
 }

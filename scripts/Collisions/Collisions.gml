@@ -7,6 +7,7 @@ function damagePlayer(force = false)
 			if !obj_player.invincible || force {
 				obj_game.hp--;
 				if !force {
+					instance_create_layer(obj_player.x, obj_player.y, "UI", obj_live_remove);
 					obj_game.hp_lost++;
 				}
 			}
@@ -46,8 +47,11 @@ function damagePlayer(force = false)
 				if instance_exists(obj_prompt) {
 					instance_destroy(obj_prompt);
 				}
+				//Stop music
+				audio_stop_sound(obj_res_manager.music_file);
 				//Create sequence
-				layer_sequence_create("GameOver", room_width/2, room_height/2, seq_game_over)
+				layer_sequence_create("DarkenForGO", room_width/2, room_height/2, seq_go_darken)
+				layer_sequence_create("GameOver", room_width/2, room_height/2, seq_game_over);
 			}
 		}
 	}
@@ -60,10 +64,11 @@ function damageEnemy(addPoints = true)
 		//Add points
 		if addPoints {
 			if obj_game.hp >= 0 {
+				obj_game.points_previous = totalScore();
 				obj_game.enemies_killed++;
 				obj_game.points_enemies += obj_game.score_multiplier*points;
+				addHPForScore();
 			}
-			addHPForScore();
 			instance_create_layer(x, y, "UI", obj_points, {points: obj_game.score_multiplier*points});
 			killed = true;
 		}
@@ -75,10 +80,24 @@ function damageEnemy(addPoints = true)
 	}
 }
 
+function addHP()
+{
+	layer_sequence_create("UI", room_width/2, room_height/2, seq_add_life);
+}
+
 function addHPForScore()
 {
-	if totalScore()%5000 == 0 {
-		obj_game.hp++;
+	var milestones_passed = floor(totalScore() / 5000) - floor(obj_game.points_previous / 5000);
+	for (i = 0; i < milestones_passed; i++) {
+		addHP();
+	}
+}
+
+function addHPForCombo()
+{
+	//Add HP for S, SS, SSS
+	if obj_game.combo == 55 || obj_game.combo == 45 || obj_game.combo == 35 {
+		addHP();
 	}
 }
 

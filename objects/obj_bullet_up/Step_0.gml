@@ -6,7 +6,6 @@ if target != noone && instance_exists(target) {
 		move_towards_point(target.x, target.y, max_speed*2);
 	}
 } else {
-	//move_towards_point(random_range(x-10, x+10), y-1, max_speed);
 	t = (t + random_range(1,5)) mod 360;
 	shift = amplitude * dsin(t);
  

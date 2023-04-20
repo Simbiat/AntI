@@ -1,4 +1,4 @@
-hspeed = (obj_res_manager.stride + stride)*obj_res_manager.bg_front_speed;
+hspeed = (obj_res_manager.stride/obj_res_manager.stride_divider + stride)*obj_res_manager.bg_front_speed;
 if instance_exists(obj_player) && !obj_player.is_grounded {
 	move_towards_point(closest_left_wall.bbox_left - sprite_width/2, obj_player.y, speed);
 } else {

@@ -94,6 +94,7 @@ if sprite_index == spr_waveform {
 					if right {
 						if !obj_player.is_grounded {
 							musicNormalize();
+							obj_game.points_previous = totalScore();
 							obj_game.combo++;
 							obj_game.prompts_correct++;
 							//Add points
@@ -102,10 +103,7 @@ if sprite_index == spr_waveform {
 							if obj_game.combo == 55 || obj_game.combo == 45 || obj_game.combo == 35 || obj_game.combo == 25 || obj_game.combo == 15 || obj_game.combo == 7 || obj_game.combo == 2 {
 								//Generate combo object
 								instance_create_layer(x, y, "ComboText", obj_combo_text);
-								//Add HP for S, SS, SSS
-								if obj_game.combo == 55 || obj_game.combo == 45 || obj_game.combo == 35 {
-									obj_game.hp++;
-								}
+								addHPForCombo();
 							} else {
 								//Show flying text
 								instance_create_layer(x, y, "UI", obj_points, {points: obj_game.combo*obj_game.score_multiplier});

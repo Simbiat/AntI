@@ -1,6 +1,6 @@
 event_inherited();
 if facing == "right" {
-	hspeed = (obj_res_manager.stride + stride)*obj_res_manager.bg_front_speed;	
+	hspeed = (obj_res_manager.stride/obj_res_manager.stride_divider + stride)*obj_res_manager.bg_front_speed;	
 }
 
 noseLocation();
