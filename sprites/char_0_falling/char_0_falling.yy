@@ -4,8 +4,8 @@
   "name": "char_0_falling",
   "bbox_bottom": 179,
   "bbox_left": 50,
-  "bbox_right": 130,
-  "bbox_top": 23,
+  "bbox_right": 133,
+  "bbox_top": 22,
   "bboxMode": 2,
   "collisionKind": 4,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b8ee77f9-44fc-42cd-bbec-82647a9c46a5",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e78d82eb-5040-4f24-a657-0768fd2f3c3b",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 180,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5c3fa192-3299-4852-983f-b19d12827193","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ba76e1de-df08-4d03-916f-6484d2531b76","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b8ee77f9-44fc-42cd-bbec-82647a9c46a5","path":"sprites/char_0_falling/char_0_falling.yy",},},},"Disabled":false,"id":"d1de6b3f-f5ec-4697-b31a-c96901ef066d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e78d82eb-5040-4f24-a657-0768fd2f3c3b","path":"sprites/char_0_falling/char_0_falling.yy",},},},"Disabled":false,"id":"e27b5ebe-2ec3-4306-9347-4abb1b7ac023","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

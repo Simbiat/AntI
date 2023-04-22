@@ -129,6 +129,7 @@
     {"name":"spr_autotune","order":7,"path":"sprites/spr_autotune/spr_autotune.yy",},
     {"name":"obj_vinyl","order":4,"path":"objects/obj_vinyl/obj_vinyl.yy",},
     {"name":"obj_lives","order":7,"path":"objects/obj_lives/obj_lives.yy",},
+    {"name":"spr_logo","order":8,"path":"sprites/spr_logo/spr_logo.yy",},
     {"name":"seq_black_out","order":13,"path":"sequences/seq_black_out/seq_black_out.yy",},
     {"name":"spr_lawyer","order":3,"path":"sprites/spr_lawyer/spr_lawyer.yy",},
     {"name":"obj_invis_wall","order":5,"path":"objects/obj_invis_wall/obj_invis_wall.yy",},

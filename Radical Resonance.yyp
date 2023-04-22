@@ -160,6 +160,7 @@
     {"id":{"name":"obj_vinyl","path":"objects/obj_vinyl/obj_vinyl.yy",},},
     {"id":{"name":"obj_lives","path":"objects/obj_lives/obj_lives.yy",},},
     {"id":{"name":"scr_FTF_ENUMS","path":"scripts/scr_FTF_ENUMS/scr_FTF_ENUMS.yy",},},
+    {"id":{"name":"spr_logo","path":"sprites/spr_logo/spr_logo.yy",},},
     {"id":{"name":"go_combo","path":"objects/go_combo/go_combo.yy",},},
     {"id":{"name":"seq_black_out","path":"sequences/seq_black_out/seq_black_out.yy",},},
     {"id":{"name":"spr_lawyer","path":"sprites/spr_lawyer/spr_lawyer.yy",},},

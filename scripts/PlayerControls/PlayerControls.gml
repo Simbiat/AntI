@@ -101,6 +101,7 @@ function processActions()
 function daveJump(down = false, ceiling = false)
 {
 	//audio_play_sound(snd_jump, 1, false);
+	obj_player.sprite_index = asset_get_index("char_"+string(obj_res_manager.charid)+"_jump");
 	isJumping = true;
 	if down {
 		obj_player.vspeed = obj_player.jump_height/1.5;
