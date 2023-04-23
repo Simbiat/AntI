@@ -42,6 +42,7 @@
         "\"left\"",
         "\"right\"",
       ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"\"none\"","varType":6,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"selected","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
   ],
   "solid": false,
   "spriteId": {

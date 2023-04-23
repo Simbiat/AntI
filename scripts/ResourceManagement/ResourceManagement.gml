@@ -150,7 +150,7 @@ function gradeToNumber(grade = "d") {
 
 function totalScore()
 {
-	return obj_game.points_enemies +
+	var fullScore = obj_game.points_enemies +
 			(obj_game.enemies_killed * 2) +
 			(obj_game.enemies_dodged * 1) +
 			obj_game.points_prompts +
@@ -160,4 +160,8 @@ function totalScore()
 			(obj_game.combo_highest * 10) +
 			(-obj_game.hp_lost * 500) +
 			obj_game.points_time;
+	if fullScore < 0 {
+		fullScore = 0;	
+	}
+	return fullScore;
 }

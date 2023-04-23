@@ -3,8 +3,14 @@
 if gamepad != noone && gamepad_is_connected(gamepad) {
 	//Menu on gamepad Start button
 	if gamepad_button_check_pressed(gamepad, gp_start) {
-		with obj_button_play {
-			event_user(0);
+		if room = title_menu {
+			with obj_button_play {
+				event_user(0);
+			}
+		} else {
+			with obj_button_play_again {
+				event_user(0);
+			}
 		}
 	}
 	if gamepad_button_check_pressed(gamepad, gp_select) {

@@ -9,10 +9,11 @@ if scale < 1 {
 		var prevFont = draw_get_font();
 		draw_set_font(fnt_combo);
 		strWidth = string_width(text);
+		strHeight = string_height(text);
 		draw_set_font(prevFont);
 		//destX = 20 + strWidth/2;
 		destX = room_width/2;
-		destY = room_height - 120;
+		destY = room_height - strHeight*1.5;
 	}
 }
 var distance = point_distance(x, y, destX, destY);

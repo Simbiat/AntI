@@ -61,16 +61,15 @@ ttl = min(ttl, 5*room_speed);
 timer = ttl + input_buffer + room_speed/10;
 
 if !initial {
-	sprite_index = spr_waveform;
+	sprite_index = spr_button_prompts;
 	image_xscale = 0;
 	image_yscale = 0;
 } else {
 	sprite_index = spr_space;
+	warning = 0;
+	selected = true;
 	image_xscale = 2;
 	image_yscale = 2;
-	//Randomize button prompt
-	//button = choose("up", "down", "left", "right");
-	//buttonSpriteSelect();
 	if obj_res_manager.gamepad != noone && gamepad_is_connected(obj_res_manager.gamepad) {
 		if obj_res_manager.gamepadType == "ps" {
 			image_index = 2;

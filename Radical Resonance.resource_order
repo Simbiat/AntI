@@ -195,7 +195,6 @@
     {"name":"obj_enemy","order":1,"path":"objects/obj_enemy/obj_enemy.yy",},
     {"name":"obj_lawyer","order":6,"path":"objects/obj_lawyer/obj_lawyer.yy",},
     {"name":"TextOutline","order":15,"path":"scripts/TextOutline/TextOutline.yy",},
-    {"name":"spr_waveform","order":11,"path":"sprites/spr_waveform/spr_waveform.yy",},
     {"name":"spr_black_screen","order":11,"path":"sprites/spr_black_screen/spr_black_screen.yy",},
     {"name":"snd_crate","order":21,"path":"sounds/snd_crate/snd_crate.yy",},
     {"name":"PlayerControls","order":3,"path":"scripts/PlayerControls/PlayerControls.yy",},

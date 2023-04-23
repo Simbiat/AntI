@@ -1,21 +1,39 @@
-if sprite_index == spr_waveform {
+if selected == false {
 	if warning == 0 {
-		//Change sprite
-		sprite_index = spr_button_prompts;
 		//Reset scale
 		image_xscale = 2;
 		image_yscale = 2;
-		//Reset angle
-		image_angle = 0;
 		//Randomize button prompt
-		button = choose("up", "down", "left", "right");
+		if !initial {
+			//Change sprite
+			sprite_index = spr_button_prompts;
+			//Select button
+			button = choose("up", "down", "left", "right");
+		}
+		selected = true;
 	} else {
+		image_xscale += 0.0666666666666667;
+		image_yscale += 0.0666666666666667;
+		if !initial && warning%5 == 0 {
+			switch (button) {
+			    case "up":
+			        button = "right";
+			        break;
+			    case "right":
+			        button = "down";
+			        break;
+			    case "down":
+			        button = "left";
+			        break;
+			    case "left":
+			        button = "up";
+			        break;
+			    default:
+			        button = choose("up", "down", "left", "right");
+			        break;
+			}
+		}
 		warning--;
-		//Spin
-		image_angle += 5;
-		//Enlarge
-		image_xscale += 0.025;
-		image_yscale += 0.025;
 	}
 } else {
 	if !wrong && !right {

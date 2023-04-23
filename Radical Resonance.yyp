@@ -235,7 +235,6 @@
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},},
     {"id":{"name":"obj_lawyer","path":"objects/obj_lawyer/obj_lawyer.yy",},},
     {"id":{"name":"TextOutline","path":"scripts/TextOutline/TextOutline.yy",},},
-    {"id":{"name":"spr_waveform","path":"sprites/spr_waveform/spr_waveform.yy",},},
     {"id":{"name":"spr_black_screen","path":"sprites/spr_black_screen/spr_black_screen.yy",},},
     {"id":{"name":"snd_crate","path":"sounds/snd_crate/snd_crate.yy",},},
     {"id":{"name":"PlayerControls","path":"scripts/PlayerControls/PlayerControls.yy",},},
