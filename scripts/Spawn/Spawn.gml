@@ -1,7 +1,7 @@
 function spawn()
 {
 	if !obj_game.generate_enemies {
-		return;
+		return false;
 	}
 	
 	//For testing specific enemy
@@ -11,8 +11,8 @@ function spawn()
 	//return;
 	
 	//For testing post "tutorial" flow
-	//if obj_game.enemies_spawned != 60 {
-	//	obj_game.enemies_spawned = 60;
+	//if obj_game.enemies_spawned < 100 {
+	//	obj_game.enemies_spawned = 100;
 	//}
 	
 	//Scaling after tutorial mode
@@ -22,9 +22,8 @@ function spawn()
 		max_enemies += floor((obj_game.enemies_spawned - 60)/10);
 		specialChance += floor((obj_game.enemies_spawned - 60)/10);
 	}
-	
 	if instance_number(obj_enemy) >= max_enemies {
-		return;
+		return false;
 	}
 	var enemy = noone;
 	switch (obj_game.enemies_spawned) {
@@ -110,7 +109,7 @@ function spawn()
 			}
 	        break;
 	}
-			
+	
 	//Actual spawn based on the enemy selected
 	if enemy != noone {
 		obj_game.enemies_spawned++;
@@ -138,9 +137,10 @@ function spawn()
 	        instance_create_layer(room_right_wall.bbox_right + sprite_get_width(spr_pop_star)/2, random_range(900 - sprite_get_height(spr_pop_star)/2, sprite_get_height(spr_pop_star)/2), "Instances", obj_pop_star);
 	        break;
 	    default:
-	        //Do nothing
+	        return false;
 	        break;
 	}
+	return true;
 }
 
 function enemySelection(lawyer = true, dj = true, autotune = true, executive = true, mogul = true, thief = true, oneOfEach = false)
@@ -167,7 +167,7 @@ function enemySelection(lawyer = true, dj = true, autotune = true, executive = t
 	if thief {
 		ds_list_add(enemy_list, obj_beat_thief);
 	}
-	//We need to ago through the lest in reverse, because when we do ds_list_delete, the items "above" the removed one are moved by -1 in the index,
+	//We need to go through the lest in reverse, because when we do ds_list_delete, the items "above" the removed one are moved by -1 in the index,
 	//which causes weird behavior in some situations. And there is even no errors, if you are removing a non-existent index
 	for (var i = ds_list_size(enemy_list) - 1; i >= 0; i--) {
 		//Check if enemy is already spawned
@@ -197,17 +197,17 @@ function enemySelection(lawyer = true, dj = true, autotune = true, executive = t
 					}
 			        break;
 			    case obj_executive:
-			        if instance_exists(obj_lawyer) || instance_exists(obj_beat_thief) || instance_exists(obj_mogul) || instance_exists(obj_autotune) {
+			        if instance_exists(obj_lawyer) || instance_exists(obj_beat_thief) {
 						ds_list_delete(enemy_list, i);
 					}
 			        break;
 			    case obj_autotune:
-			        if instance_exists(obj_mogul) || instance_exists(obj_beat_thief) || instance_exists(obj_executive) {
+			        if instance_exists(obj_mogul) || instance_exists(obj_beat_thief) {
 						ds_list_delete(enemy_list, i);
 					}
 			        break;
 			    case obj_mogul:
-			        if instance_exists(obj_autotune) || instance_exists(obj_beat_thief) || instance_exists(obj_executive) {
+			        if instance_exists(obj_autotune) || instance_exists(obj_beat_thief) {
 						ds_list_delete(enemy_list, i);
 					}
 			        break;

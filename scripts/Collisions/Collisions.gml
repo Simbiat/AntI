@@ -91,7 +91,6 @@ function addHPForScore()
 	if currentScore == 0 || currentScore < obj_game.points_previous {
 		return;
 	}
-	show_debug_message("score: "+string(currentScore)+"; mod: "+string(currentScore%5000))
 	if currentScore%5000 == 0 {
 		addHP();
 		return;

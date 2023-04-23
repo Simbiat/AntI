@@ -48,8 +48,6 @@ if instance_exists(obj_game) {
 //Parallax effect
 if instance_exists(obj_player) && obj_player.is_grounded == false {
 	layer_x("city_front", -lerp(0, bg_offset, bg_front_speed));
-	//show_debug_message("layer_x: "+string(layer_get_x("city_front"))+"; offset: "+string(bg_offset))
-	//layer_x("city_front", -bg_offset);
 	layer_x("city_back", -lerp(0, bg_offset, 0.5));
 	layer_x("sky", -lerp(0, bg_offset, 0.65));
 	bg_offset += stride;

@@ -12,7 +12,11 @@ if instance_exists(obj_player) {
 	if  !obj_player.is_grounded {
 		//Spawn enemies only if we are in the air
 		if alarm[1] < 0 {
-			alarm[1] = 2*room_speed;
+			if enemies_spawned >= 70 {
+				alarm[1] = clamp(2*room_speed - floor((enemies_spawned - 70)/10), room_speed, 2*room_speed);
+			} else {
+				alarm[1] = 2*room_speed;
+			}
 		}
 		//Add 1 point per second
 		if alarm[4] < 0 {

@@ -11,7 +11,7 @@ if !isAttacking {
 }
 
 
-if y == targetY {
+if y == targetY || x = targetX {
 	//Switch direction
 	if going == "up" {
 		if alarm[1] < 0 && alarm[2] < 0 {
