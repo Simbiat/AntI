@@ -7,16 +7,13 @@
   ],
   "managed": true,
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"parent_FTF","path":"objects/parent_FTF/parent_FTF.yy",},"propertyId":null,"value":"_filter_greyscale_shader",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":null,"propertyId":null,"value":"_filter_greyscale_shader",},
   ],
   "parent": {
-    "name": "Stackable",
-    "path": "folders/FTF_Free_The_Filters/Objects/Children/Stackable.yy",
+    "name": "SimbiatCommons",
+    "path": "folders/SimbiatCommons.yy",
   },
-  "parentObjectId": {
-    "name": "parent_FTF",
-    "path": "objects/parent_FTF/parent_FTF.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
